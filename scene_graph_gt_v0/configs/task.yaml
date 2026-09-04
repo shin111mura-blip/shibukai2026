@@ -1,0 +1,6 @@
+suite: libero_spatial
+task_language: pick up the black bowl between the plate and the ramekin and place it on the plate
+output_dir: outputs/scene_graph_gt_v0
+camera_name: agentview
+image_size: 256
+demo_index: 0

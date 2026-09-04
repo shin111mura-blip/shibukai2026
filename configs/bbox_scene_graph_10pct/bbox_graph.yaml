@@ -1,0 +1,9 @@
+inherits: configs/bbox_scene_graph_10pct/common.yaml
+condition: bbox_graph
+bbox_tokens:
+  enabled: true
+scene_graph:
+  enabled: true
+  use_roi_visual_features: false
+inference:
+  bbox_mode: none

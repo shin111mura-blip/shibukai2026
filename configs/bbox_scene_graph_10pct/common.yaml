@@ -1,0 +1,59 @@
+suite: libero_spatial
+dataset_name: libero_spatial_no_noops
+seed: 42
+split: splits/libero_spatial_10pct_seed42.json
+data_root_dir: data/modified_libero_rlds
+run_root_dir: outputs
+training:
+  batch_size: 1
+  grad_accumulation_steps: 8
+  max_steps: 10000
+  save_steps: 1000
+  learning_rate: 0.0005
+  lora_rank: 32
+  image_aug: false
+  effective_batch_size: 8
+bbox_tokens:
+  enabled: false
+  max_objects: 12
+  include_coordinates: true
+  include_category_embedding: false
+  include_confidence_embedding: false
+  pooling: mean
+  sort_order: spatial
+scene_graph:
+  enabled: false
+  near_threshold: 0.25
+  left_right_margin: 0.02
+  above_below_margin: 0.02
+  overlap_iou_threshold: 0.05
+  between_perpendicular_threshold: 0.10
+  between_endpoint_margin: 0.05
+loss:
+  lambda_edge: 0.1
+  lambda_between: 0.1
+  edge_pos_weight: auto
+  between_pos_weight: auto
+inference:
+  bbox_mode: none
+logging:
+  plot_raw_values: true
+  moving_average_window: 50
+qualitative_logging:
+  enabled: true
+  interval_steps: 500
+  max_samples_per_task: 20
+  save_success_cases: true
+  save_failure_cases: true
+  save_random_cases: true
+  save_hard_cases: true
+evaluation:
+  checkpoint_steps: [1000, 5000, 10000, final]
+evaluation_video:
+  enabled: true
+  max_success_videos_per_task: 3
+  max_failure_videos_per_task: 5
+probe_logging:
+  enabled: false
+  max_samples: 5000
+  dtype: float16

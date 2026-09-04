@@ -1,0 +1,29 @@
+inherits: configs/bbox_scene_graph_10pct/bbox_graph.yaml
+condition: bbox_graph
+hardware:
+  gpu: A6000
+  num_gpus: 2
+training:
+  batch_size: 6
+  grad_accumulation_steps: 2
+  effective_batch_size: 24
+  max_steps: 10000
+  save_steps: 1000
+  learning_rate: 0.0005
+  lora_rank: 32
+  image_aug: false
+launch:
+  command: >
+    OPENVLA_RLDS_DEMO_SPLIT_JSON=splits/libero_spatial_10pct_seed42.json
+    torchrun --standalone --nnodes 1 --nproc-per-node 2
+    vla-scripts/finetune.py
+    --data_root_dir data/modified_libero_rlds
+    --dataset_name libero_spatial_no_noops
+    --run_root_dir outputs/openvla_libero_spatial_10pct_bbox_graph_seed42
+    --batch_size 6
+    --grad_accumulation_steps 2
+    --max_steps 10000
+    --save_steps 1000
+    --learning_rate 0.0005
+    --lora_rank 32
+    --image_aug false

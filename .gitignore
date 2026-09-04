@@ -1,0 +1,100 @@
+# ========================================
+# Python
+# ========================================
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Python virtual environments
+.venv/
+.venv_plot/
+venv/
+env/
+
+# ========================================
+# Local LIBERO configuration
+# ========================================
+# Docker内の /workspace/... に依存するため管理しない
+.libero/
+
+# ========================================
+# Nested cloned Git repositories
+# ========================================
+# それぞれのディレクトリ内で別々にGit管理する
+openvla/
+LIBERO/
+YOLO-World/
+
+# ========================================
+# Models and checkpoints
+# ========================================
+checkpoints/
+openvla_models/
+models/
+weights/
+
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+
+# ========================================
+# Datasets
+# ========================================
+data/
+datasets/
+
+# ========================================
+# Generated caches
+# ========================================
+cache/
+bbox_cache/
+scene_graph_cache/
+yolo_cache/
+huggingface_cache/
+
+# ========================================
+# Experiment outputs
+# ========================================
+outputs/
+runs/
+wandb/
+logs/
+results/
+artifacts/
+transfer_archives/
+
+# ========================================
+# Generated media
+# ========================================
+*.mp4
+*.avi
+*.mov
+
+# 必要なら小数の検証画像だけは別ディレクトリで管理する
+overlays/
+visualizations/
+additional_scenegraph/
+
+# Local assistant/editor settings
+.claude/
+
+# ========================================
+# Temporary files
+# ========================================
+*.log
+*.tmp
+*.swp
+*.bak
+.DS_Store
+
+# ========================================
+# Local environment and secrets
+# ========================================
+.env
+.env.*

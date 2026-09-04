@@ -1,0 +1,29 @@
+services:
+  libero-eval:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hri2027-libero-eval:latest
+    working_dir: /workspace
+    ipc: host
+    shm_size: "16gb"
+    gpus: all
+    environment:
+      HF_HUB_OFFLINE: "1"
+      TRANSFORMERS_OFFLINE: "1"
+      HF_DATASETS_OFFLINE: "1"
+      WANDB_MODE: disabled
+      MUJOCO_GL: egl
+      PYOPENGL_PLATFORM: egl
+      LIBERO_CONFIG_PATH: /workspace/.libero
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility,graphics
+      PYTHONPATH: /workspace/openvla:/workspace/LIBERO:/opt/src/openvla:/opt/src/LIBERO
+    volumes:
+      - type: bind
+        source: .
+        target: /workspace
+      - type: bind
+        source: ${OPENVLA_CHECKPOINT_HOST:-/home/user/Desktop/HRI2027/openvla_models/openvla_libero_spatial_ft_b42/openvla-7b+libero_spatial_no_noops+b42+lr-0.0005+lora-r32+dropout-0.0--image_aug}
+        target: /workspace/checkpoints/openvla_libero_spatial_ft
+        read_only: true

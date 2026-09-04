@@ -1,0 +1,32 @@
+relation_rule_version: "0.4"
+min_visible_pixels: 32
+teacher_graph:
+  path: rule_based/world_graph
+  visibility_policy: nodes and edges are preserved even when not visible in the RGB frame
+  node_position_source: MuJoCo body/geom world_xyz; gripper uses gripper0_grip_site
+left_right:
+  source: MuJoCo world positions
+  condition: directed axis predicate on relative-neighborhood graph edges
+above_below:
+  source: MuJoCo world positions
+  condition: directed axis predicate on relative-neighborhood graph edges
+gripper:
+  source: MuJoCo gripper0_grip_site projected into agentview
+  fallback: none
+on:
+  source: LIBERO official On predicate
+  direction: on(subject, support)
+inside:
+  source: LIBERO official In predicate
+  direction: inside(subject, container)
+contains:
+  source: inverse of inside only
+grasping:
+  direction: grasping(gripper, object)
+  rule: left finger contact with object AND right finger contact with same object
+  forbidden_requirements:
+    - lift
+    - temporal persistence
+    - gripper action
+    - gripper joint value
+    - velocity matching

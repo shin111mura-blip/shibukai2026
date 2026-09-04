@@ -1,0 +1,19 @@
+architecture: node_query_decoder
+input_source: openvla_hidden_features_only
+model_dim: 512
+num_decoder_layers: 4
+num_attention_heads: 8
+feedforward_dim: 2048
+dropout: 0.1
+training:
+  seed: 42
+  epochs: 30
+  batch_size: 64
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-4
+  warmup_ratio: 0.05
+  scheduler: cosine
+  optimizer: AdamW
+  gradient_clip_norm: 1.0
+  precision: bf16
+  early_stopping_patience: 5

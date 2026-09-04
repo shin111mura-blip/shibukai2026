@@ -1,0 +1,19 @@
+primary_graph_teacher: depth_free
+lambda_graph: 0.1
+conditions:
+  - rgb_graph
+  - rgb_graph_no_action
+data_seeds:
+  - 101
+  - 202
+  - 303
+holdout_manifests:
+  101: manifests/depth_free_teacher_holdout_seed101.json
+  202: manifests/depth_free_teacher_holdout_seed202.json
+  303: manifests/depth_free_teacher_holdout_seed303.json
+locked_lora_spec: reports/openvla_lora_locked_spec.yaml
+locked_graph_teacher: reports/primary_graph_teacher.lock.json
+checkpoint: outputs/scene_graph_generator_openvla_spatial/checkpoints/pooled_mlp_openvla_3d/best.pt
+diagnosis:
+  rollout_source: action-enabled rgb_graph policy images
+  graph_probe_condition: rgb_graph_no_action

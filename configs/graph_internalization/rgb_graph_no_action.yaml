@@ -1,0 +1,12 @@
+condition: rgb_graph_no_action
+uses_depth: false
+uses_graph_aux: true
+uses_action_loss: false
+lambda_graph: 0.1
+graph_teacher:
+  class: OpenVLAOnlyPooledMLP3DGraphGenerator
+  checkpoint: outputs/scene_graph_generator_openvla_spatial/checkpoints/pooled_mlp_openvla_3d/best.pt
+  frozen: true
+  receives_depth_side_input: false
+manifest_template: manifests/depth_free_teacher_holdout_seed{seed}.json
+inherits: reports/openvla_lora_locked_spec.yaml

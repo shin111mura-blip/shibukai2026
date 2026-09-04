@@ -1,0 +1,16 @@
+bowl
+plate
+mug
+cup
+book
+box
+basket
+bottle
+can
+drawer
+cabinet
+stove
+microwave
+table
+workspace
+object

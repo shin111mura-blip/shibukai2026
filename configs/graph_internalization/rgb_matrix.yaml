@@ -1,0 +1,25 @@
+primary_graph_teacher: depth_free
+lambda_graph: 0.1
+conditions:
+  - rgb_action
+  - rgb_graph
+data_seeds:
+  - 101
+  - 202
+  - 303
+holdout_manifests:
+  101: manifests/depth_free_teacher_holdout_seed101.json
+  202: manifests/depth_free_teacher_holdout_seed202.json
+  303: manifests/depth_free_teacher_holdout_seed303.json
+locked_lora_spec: reports/openvla_lora_locked_spec.yaml
+locked_graph_teacher: reports/primary_graph_teacher.lock.json
+checkpoint: outputs/scene_graph_generator_openvla_spatial/checkpoints/pooled_mlp_openvla_3d/best.pt
+server_runner:
+  launch_mode: tmux
+  one_process_per_gpu: true
+  overwrite_existing_runs: false
+  scripts:
+    smoke: server_runner/20_smoke_train_rgb.sh
+    launch: server_runner/30_launch_rgb_matrix.sh
+    eval: server_runner/40_eval_rgb_matrix.sh
+    aggregate: server_runner/50_aggregate_rgb.sh

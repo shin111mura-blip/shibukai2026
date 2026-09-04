@@ -1,0 +1,10 @@
+.agents
+.codex
+.git
+**/.git
+openvla_models
+outputs
+checkpoints
+rollouts
+__pycache__
+*.pyc

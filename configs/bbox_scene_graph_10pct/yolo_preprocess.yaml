@@ -1,0 +1,14 @@
+detector:
+  name: yolo-world
+  backend: ultralytics
+  config: ""
+  checkpoint: checkpoints/yolo_world/yolov8s-worldv2.pt
+  confidence_threshold: 0.05
+  nms_threshold: 0.5
+  vocabulary_file: configs/bbox_scene_graph_10pct/yolo_vocab.txt
+paths:
+  manifest: cache/libero_frames/manifest.jsonl
+  output_dir: cache/yolo_bbox
+sorting:
+  order: spatial
+  max_objects: 12

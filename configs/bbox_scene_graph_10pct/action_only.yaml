@@ -1,0 +1,8 @@
+inherits: configs/bbox_scene_graph_10pct/common.yaml
+condition: action_only
+bbox_tokens:
+  enabled: false
+scene_graph:
+  enabled: false
+inference:
+  bbox_mode: none

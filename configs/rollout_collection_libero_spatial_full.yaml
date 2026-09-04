@@ -1,0 +1,84 @@
+{
+  "additional_collection": {
+    "failure_shortage_policy_priority": [
+      "low_10pct_action_only"
+    ],
+    "max_episodes_per_task": 120,
+    "min_failure_per_task": 30,
+    "min_success_per_task": 30,
+    "success_shortage_policy_priority": [
+      "high_official_libero_spatial"
+    ]
+  },
+  "camera_name": "agentview",
+  "full_plan": {
+    "high_official_libero_spatial": {
+      "assigned_gpus": [
+        0,
+        1
+      ],
+      "assigned_workers": [
+        0,
+        1
+      ],
+      "episodes_per_task": 40
+    },
+    "low_10pct_action_only": {
+      "assigned_gpus": [
+        2,
+        3
+      ],
+      "assigned_workers": [
+        2,
+        3
+      ],
+      "episodes_per_task": 40
+    }
+  },
+  "image_size": 256,
+  "maximum_steps": 220,
+  "num_steps_wait": 10,
+  "output_dir": "data/openvla_rollout_graph_v2",
+  "preflight_jobs": [
+    {
+      "assigned_gpu": 0,
+      "assigned_worker": 0,
+      "policy_id": "high_official_libero_spatial",
+      "task_id": 0
+    },
+    {
+      "assigned_gpu": 1,
+      "assigned_worker": 1,
+      "policy_id": "high_official_libero_spatial",
+      "task_id": 1
+    },
+    {
+      "assigned_gpu": 2,
+      "assigned_worker": 2,
+      "policy_id": "low_10pct_action_only",
+      "task_id": 2
+    },
+    {
+      "assigned_gpu": 3,
+      "assigned_worker": 3,
+      "policy_id": "low_10pct_action_only",
+      "task_id": 3
+    }
+  ],
+  "save_terminal_frame": true,
+  "split_seed": 20260803,
+  "suite": "libero_spatial",
+  "task_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "validate_after_episode": true
+}

@@ -1,0 +1,6 @@
+condition: rgb_action
+uses_depth: false
+uses_graph_aux: false
+lambda_graph: 0.0
+manifest_template: manifests/depth_free_teacher_holdout_seed{seed}.json
+inherits: reports/openvla_lora_locked_spec.yaml

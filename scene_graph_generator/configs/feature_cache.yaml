@@ -1,0 +1,11 @@
+checkpoint: checkpoints/openvla_7b_base_with_libero_spatial_10demo_stats
+feature_cache:
+  feature_layer: -2
+  dtype: bfloat16
+  shard_size: 512
+  format: safetensors
+  keep_image_tokens: true
+  keep_instruction_tokens: true
+  resume: true
+  atomic_write: true
+

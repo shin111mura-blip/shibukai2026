@@ -1,0 +1,12 @@
+dataset_name: libero_spatial_no_noops
+graph_root: outputs/scene_graph_gt_openvla_spatial/rule_based/world_graph
+demo_manifest: outputs/scene_graph_gt_openvla_spatial/reports/openvla_demo_manifest.jsonl
+output_root: outputs/scene_graph_generator_openvla_spatial
+split:
+  unit: global_episode_index
+  stratify_by: task_id
+  train_ratio: 0.50
+  validation_ratio: 0.25
+  test_ratio: 0.25
+  seed: 42
+

@@ -1,0 +1,15 @@
+inherits: configs/bbox_scene_graph_10pct/bbox_graph.yaml
+condition: bbox_graph_local_smoke
+training:
+  batch_size: 1
+  grad_accumulation_steps: 1
+  max_steps: 10
+  save_steps: 10
+  learning_rate: 0.0005
+  lora_rank: 8
+  image_aug: false
+smoke:
+  task_limit: 1
+  demonstration_limit: 1
+  frame_limit: 64
+  optimizer_steps: 10

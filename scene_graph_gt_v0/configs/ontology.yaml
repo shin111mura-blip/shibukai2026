@@ -1,0 +1,27 @@
+schema_version: "0.3"
+node_ids:
+  - akita_black_bowl_1
+  - akita_black_bowl_2
+  - cookies_1
+  - flat_stove_1
+  - glazed_rim_porcelain_ramekin_1
+  - gripper
+  - plate_1
+  - wooden_cabinet_1
+predicates:
+  - left_of
+  - right_of
+  - above
+  - below
+  - front_of
+  - behind
+  - on
+  - inside
+  - contains
+  - grasping
+forbidden_predicates:
+  - between
+  - touching
+  - near
+  - overlapping
+  - holding

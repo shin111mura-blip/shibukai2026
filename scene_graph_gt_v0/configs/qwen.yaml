@@ -1,0 +1,15 @@
+models:
+  primary: Qwen/Qwen3-VL-8B-Instruct
+  fallback: Qwen/Qwen3-VL-4B-Instruct
+generation:
+  do_sample: false
+  temperature: 0.0
+  max_new_tokens: 768
+runtime:
+  dtype_preference: bfloat16
+  device_map: auto
+  attention_preference:
+    - flash_attention_2
+    - sdpa
+  cache_dir: outputs/scene_graph_gt_v0/hf_cache
+

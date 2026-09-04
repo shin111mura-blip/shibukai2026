@@ -1,0 +1,10 @@
+condition: rgbd_action
+uses_depth: true
+uses_graph_aux: false
+lambda_graph: 0.0
+depth_adapter:
+  type: conv2d_4_to_3_kernel1
+  init: rgb_identity_depth_zero_bias_zero
+  optimizer_group: depth_adapter
+manifest_template: manifests/depth_free_teacher_holdout_seed{seed}.json
+inherits: reports/openvla_lora_locked_spec.yaml
